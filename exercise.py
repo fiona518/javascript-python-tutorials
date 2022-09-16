@@ -1,12 +1,22 @@
 #!/usr/bin/python3
 from tkinter import *
+from tkinter import messagebox
 
 top = Tk()
-top.geometry('400x250')
-name = Label(top, text="Name").place(x=30, y=50)
-email = Label(top, text="Email").place(x=30, y=90)
-password = Label(top, text="Password").place(x=30, y=130)
-e1 = Entry(top).place(x=80, y=50)
-e2 = Entry(top).place(x=80, y=90)
-e3 = Entry(top).place(x=80, y=130)
+
+top.geometry('200x100')
+
+def fun():
+    messagebox.showinfo("Hello", "Red Button Clicked")
+
+b1 = Button(top, text="Red", command=fun, activeforeground="red", activebackground="pink", pady=10)
+b2 = Button(top, text="Blue", activeforeground="blue", activebackground="pink", pady=10)
+b3 = Button(top, text="Green", activeforeground="green", activebackground="pink", pady=10)
+b4 = Button(top, text="Yellow", activeforeground="yellow", activebackground="pink", pady=10)
+
+b1.pack(side=LEFT)
+b2.pack(side=RIGHT)
+b3.pack(side=TOP)
+b4.pack(side=BOTTOM)
+
 top.mainloop()
