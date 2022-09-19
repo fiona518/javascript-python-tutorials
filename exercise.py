@@ -1,20 +1,31 @@
 #!/usr/bin/python3
-from tkinter import *
+import tkinter as tk
+from functools import partial
 
-top = Tk()
+def call_result(label_result, n1, n2):
+    num1 = (n1.get())
+    num2 = (n2.get())
+    result  = float(num1) + float(num2)
+    label_result.config(text="Resullt = %d" % result)
 
-top.geometry('200x200')
+root = tk.Tk()
+root.geometry('400x200+100+200')
 
-checkvar1 = IntVar()
-checkvar2 = IntVar()
-checkvar3 = IntVar()
+root.title('Calculator')
 
-chkbtn1 = Checkbutton(top, text="C",  variable=checkvar1, offvalue=0, height=2, width=10)
-chkbtn2 = Checkbutton(top, text="C++",  variable=checkvar2, offvalue=0, height=2, width=10)
-chkbtn3 = Checkbutton(top, text="Java",  variable=checkvar3, offvalue=0, height=2, width=10)
+number1 = tk.StringVar()
+number2 = tk.StringVar()
 
-chkbtn1.pack()
-chkbtn2.pack()
-chkbtn3.pack()
+labelNum1 = tk.Label(root, text="A").grid(row=1, column=0)
+labelNum2 = tk.Label(root, text="B").grid(row=2, column=0)
 
-top.mainloop()
+labelResult  = tk.Label(root)
+labelResult.grid(row=7, column=2)
+
+entryNum1  = tk.Entry(root, textvariable=number1).grid(row=1,  column=2)
+entryNum1  = tk.Entry(root, textvariable=number2).grid(row=2,  column=2)
+
+call_result = partial(call_result, labelResult, number1, number2)
+buttonCal = tk.Button(root, text="Calculate", command=call_result).grid(row=3, column=0)
+
+root.mainloop()
