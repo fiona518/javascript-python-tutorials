@@ -1,19 +1,15 @@
 from tkinter import *
-from tkinter.ttk import Labelframe
+from tkinter import messagebox
 
 top = Tk()
-top.geometry("300x200")
+top.geometry("100x100")
 
-labelframe1 =   Labelframe(top, text="Positive Comments")
-labelframe1.pack(fill="both", expand="yes")
-
-toplabel = Label(labelframe1, text="Place to  put  the positive comments")
-toplabel.pack()
-
-labelframe2 =   Labelframe(top, text="Negative Comments")
-labelframe2.pack(fill="both", expand="yes")
-
-bottomlabel = Label(labelframe2, text="Place to  put  the negative comments")
-bottomlabel.pack()
+# messagebox.showinfo("information, information")
+# messagebox.showwarning('warning', 'Warning')
+# messagebox.showerror("error",  "Error")
+# messagebox.askquestion("Confirm", "Are you sure?")
+# messagebox.askokcancel("Redirect", "Redirecting you to www.javatpoint.com")
+# messagebox.askyesno("Application", "Got it?")
+messagebox.askretrycancel("Application", "try again?")
 
 top.mainloop()
