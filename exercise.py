@@ -1,15 +1,13 @@
 from tkinter import *
 
-top =  Tk()
-sb = Scrollbar(top)
-sb.pack(side=RIGHT, fill=Y)
+root =  Tk()
+root.geometry("200x200")
 
-mylist = Listbox(top, yscrollcommand=sb.set)
+def open():
+    top = Toplevel(root)
+    top.mainloop()
 
-for line in range(30):
-    mylist.insert(END, "Number " + str(line))
+btn = Button(root, text="open", command=open)
+btn.place(x=75, y=50)
 
-mylist.pack(side=LEFT)
-sb.config(command=mylist.yview)
-
-top.mainloop()
+root.mainloop()
