@@ -3,25 +3,20 @@ from tkinter import *
 
 top = Tk()
 top.geometry('140x100')
-frame = Frame(top)
-frame.pack()
 
-leftframe = Frame(top)
-leftframe.pack(side=LEFT)
+lbl = Label(top, text="A list of favourite countries...")
 
-rightframe = Frame(top)
-rightframe.pack(side=RIGHT)
+listbox = Listbox(top)
 
-btn1 = Button(frame, text="Submit", fg='red', activebackground='red')
-btn1.pack(side=LEFT)
+listbox.insert(1, "India")
+listbox.insert(2, "USA")
+listbox.insert(3, "Japan")
+listbox.insert(4, "Australia")
 
-btn2 = Button(frame, text="Remove", fg='brown', activebackground='brown')
-btn2.pack(side=RIGHT)
+btn = Button(top, text="delete", command= lambda listbox=listbox: listbox.delete(ANCHOR))
 
-btn3 = Button(rightframe, text="Add", fg='blue', activebackground='blue')
-btn3.pack(side=LEFT)
-
-btn4 = Button(leftframe, text="Modify", fg='black', activebackground='white')
-btn4.pack(side=RIGHT)
+lbl.pack()
+listbox.pack()
+btn.pack()
 
 top.mainloop()
