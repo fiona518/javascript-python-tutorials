@@ -1,27 +1,19 @@
 from tkinter import *
+from tkinter.ttk import Labelframe
 
-def add():
-    a = int(e1.get())
-    b = int(e2.get())
-    leftdata = str(a + b)
-    left.insert(1, leftdata)
+top = Tk()
+top.geometry("300x200")
 
-w1 = PanedWindow()
-w1.pack(fill=BOTH, expand=1)
+labelframe1 =   Labelframe(top, text="Positive Comments")
+labelframe1.pack(fill="both", expand="yes")
 
-left = Entry(w1, bd=5)
-w1.add(left)
+toplabel = Label(labelframe1, text="Place to  put  the positive comments")
+toplabel.pack()
 
-w2 = PanedWindow(w1,  orient=VERTICAL)
-w1.add(w2)
+labelframe2 =   Labelframe(top, text="Negative Comments")
+labelframe2.pack(fill="both", expand="yes")
 
-e1 = Entry(w2)
-e2 = Entry(w2)
+bottomlabel = Label(labelframe2, text="Place to  put  the negative comments")
+bottomlabel.pack()
 
-w2.add(e1)
-w2.add(e2)
-
-buttom = Button(w2, text="Add", command=add)
-w2.add(buttom)
-
-mainloop()
+top.mainloop()
