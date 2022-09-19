@@ -2,21 +2,17 @@
 from tkinter import *
 
 top = Tk()
-top.geometry('140x100')
+top.geometry('200x250')
 
-lbl = Label(top, text="A list of favourite countries...")
+menubutton = Menubutton(top, text="Language", relief=FLAT)
+menubutton.grid()
 
-listbox = Listbox(top)
+menubutton.menu = Menu(menubutton)
+menubutton["menu"] = menubutton.menu
 
-listbox.insert(1, "India")
-listbox.insert(2, "USA")
-listbox.insert(3, "Japan")
-listbox.insert(4, "Australia")
+menubutton.menu.add_checkbutton(label="Hindi", variable= IntVar())
+menubutton.menu.add_checkbutton(label="English", variable= IntVar())
 
-btn = Button(top, text="delete", command= lambda listbox=listbox: listbox.delete(ANCHOR))
-
-lbl.pack()
-listbox.pack()
-btn.pack()
+menubutton.pack()
 
 top.mainloop()
