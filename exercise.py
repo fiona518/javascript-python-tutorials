@@ -5,10 +5,16 @@ top = Tk()
 
 top.geometry('200x200')
 
-c = Canvas(top, bg="pink", height="200")
+checkvar1 = IntVar()
+checkvar2 = IntVar()
+checkvar3 = IntVar()
 
-arc = c.create_arc((5, 10, 150, 200), start=0, extent=150, fill="white")
+chkbtn1 = Checkbutton(top, text="C",  variable=checkvar1, offvalue=0, height=2, width=10)
+chkbtn2 = Checkbutton(top, text="C++",  variable=checkvar2, offvalue=0, height=2, width=10)
+chkbtn3 = Checkbutton(top, text="Java",  variable=checkvar3, offvalue=0, height=2, width=10)
 
-c.pack()
+chkbtn1.pack()
+chkbtn2.pack()
+chkbtn3.pack()
 
 top.mainloop()
