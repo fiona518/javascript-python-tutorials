@@ -1,22 +1,14 @@
 #!/usr/bin/python3
 from tkinter import *
-from tkinter import messagebox
 
 top = Tk()
 
-top.geometry('200x100')
+top.geometry('200x200')
 
-def fun():
-    messagebox.showinfo("Hello", "Red Button Clicked")
+c = Canvas(top, bg="pink", height="200")
 
-b1 = Button(top, text="Red", command=fun, activeforeground="red", activebackground="pink", pady=10)
-b2 = Button(top, text="Blue", activeforeground="blue", activebackground="pink", pady=10)
-b3 = Button(top, text="Green", activeforeground="green", activebackground="pink", pady=10)
-b4 = Button(top, text="Yellow", activeforeground="yellow", activebackground="pink", pady=10)
+arc = c.create_arc((5, 10, 150, 200), start=0, extent=150, fill="white")
 
-b1.pack(side=LEFT)
-b2.pack(side=RIGHT)
-b3.pack(side=TOP)
-b4.pack(side=BOTTOM)
+c.pack()
 
 top.mainloop()
