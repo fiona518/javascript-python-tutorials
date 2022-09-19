@@ -1,19 +1,15 @@
 from tkinter import *
 
-def select():
-    sel = "Value = " + str(v.get())
-    label.config(text=sel)
-
 top =  Tk()
-top.geometry("200x100")
-v = DoubleVar()
-scale = Scale(top, variable=v, from_=1, to=50,  orient=HORIZONTAL)
-scale.pack(anchor=CENTER)
+sb = Scrollbar(top)
+sb.pack(side=RIGHT, fill=Y)
 
-btn = Button(top, text="Value", command=select)
-btn.pack(anchor=CENTER)
+mylist = Listbox(top, yscrollcommand=sb.set)
 
-label = Label(top)
-label.pack()
+for line in range(30):
+    mylist.insert(END, "Number " + str(line))
+
+mylist.pack(side=LEFT)
+sb.config(command=mylist.yview)
 
 top.mainloop()
